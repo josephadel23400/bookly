@@ -1,4 +1,3 @@
-import 'package:bookly/core/resources/colors_manager.dart';
 import 'package:bookly/features/splash_screen/manager/splash_cubit/splash_cubit.dart';
 import 'package:bookly/features/splash_screen/views/widgets/slider_first_page.dart';
 import 'package:bookly/features/splash_screen/views/widgets/slider_second_page.dart';
@@ -16,7 +15,7 @@ class SplashScreenBody extends StatelessWidget {
           return PageView(
             controller: context.read<SplashCubit>().controller,
             onPageChanged: (index) {
-              index = context.read<SplashCubit>().pageNum;
+              context.read<SplashCubit>().changePage(index) ;
             },
             children: [
               SliderFirstPage(),

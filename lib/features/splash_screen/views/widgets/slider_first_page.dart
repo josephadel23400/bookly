@@ -1,3 +1,4 @@
+import 'package:bookly/core/resources/theme_manager.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/resources/colors_manager.dart';
@@ -17,7 +18,10 @@ class SliderFirstPage extends StatelessWidget {
           SizedBox(height: 100),
           Text(
             'Find Your Book With Bookly ❤️',
-            style: TextStyle(color: ColorsManager.whiteColor, fontSize: 18),
+            style: TextStylesManager.displaySmall(
+              context,
+              color: ColorsManager.whiteColor.withValues(alpha: .7),
+            ),
           ),
         ],
       ),

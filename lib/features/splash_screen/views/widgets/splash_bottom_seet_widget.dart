@@ -1,6 +1,8 @@
+import 'package:bookly/core/resources/colors_manager.dart';
 import 'package:bookly/features/splash_screen/manager/splash_cubit/splash_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashBottomSheetWidget extends StatelessWidget {
   const SplashBottomSheetWidget({super.key});
@@ -8,18 +10,20 @@ class SplashBottomSheetWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.transparent,
-      height: 60,
+      height: 65.h,
       alignment: Alignment.center,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-
-          SizedBox(width: 15,),
+          SizedBox(width: 15.w),
           GestureDetector(
-            child: Icon(Icons.keyboard_arrow_left, size: 35),
+            child: Icon(
+              Icons.keyboard_arrow_left,
+              size: 35.h,
+              color: ColorsManager.whiteColor,
+            ),
             onTap: () {
               context.read<SplashCubit>().previousPage();
             },
@@ -45,12 +49,16 @@ class SplashBottomSheetWidget extends StatelessWidget {
           ),
           Spacer(),
           GestureDetector(
-            child: Icon(Icons.keyboard_arrow_right, size: 35),
+            child: Icon(
+              Icons.keyboard_arrow_right,
+              size: 35.h,
+              color: ColorsManager.whiteColor,
+            ),
             onTap: () {
               context.read<SplashCubit>().nextPage();
             },
           ),
-          SizedBox(width: 15,)
+          SizedBox(width: 15.w),
         ],
       ),
     );
