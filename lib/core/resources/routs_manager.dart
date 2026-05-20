@@ -14,6 +14,9 @@ class Routes {
 }
 
 class RoutsManager {
+  static final RoutsManager _instance = RoutsManager._internal();
+  factory RoutsManager() => _instance;
+  RoutsManager._internal();
   final GoRouter goRouter = GoRouter(
     initialLocation: Routes.splashPage,
 

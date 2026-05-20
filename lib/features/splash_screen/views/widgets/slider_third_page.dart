@@ -40,14 +40,14 @@ class SliderThirdPage extends StatelessWidget {
                 // outer glow
                 BoxShadow(
                   color: ColorsManager.lightBlueColor.withValues(alpha: 0.6),
-                  blurRadius: 15,
-                  spreadRadius: 2,
+                  blurRadius: 15.r,
+                  spreadRadius: 2.r,
                 ),
                 // inner glow (negative spread pulls it inward)
                 BoxShadow(
                   color: ColorsManager.lightBlueColor.withValues(alpha: 0.3),
-                  blurRadius: 8,
-                  spreadRadius: -2,
+                  blurRadius: 8.r,
+                  spreadRadius: -2.r,
                 ),
               ],
             ),
@@ -56,7 +56,7 @@ class SliderThirdPage extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
                     color: ColorsManager.glowingBlueColor.withValues(alpha: .4),
-                    width: 1.5,
+                    width: 1.5.w,
                   ),
                   borderRadius: BorderRadius.circular(SizeManager.radiusFull),
                 ),

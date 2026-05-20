@@ -11,6 +11,7 @@ class ColorsManager {
   static const Color darkBlueColor = Color(0xff1B2A4A);
   static const Color glowingBlueColor = Color(0xff4B7BEC);
   static const Color lightBlueColor = Color(0xff4B7BEC);
+  static const Color yellowColor = Color(0xffFFDD4F);
 
 }
   

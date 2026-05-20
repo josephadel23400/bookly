@@ -12,6 +12,14 @@ class Assets {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  final AssetGenImage book1 = const AssetGenImage('assets/images/Book1.png');
+  final AssetGenImage book2 = const AssetGenImage('assets/images/Book2.png');
+  final AssetGenImage book3 = const AssetGenImage('assets/images/Book3.png');
+  final SvgGenImage books = const SvgGenImage('assets/images/Books.svg');
+  final AssetGenImage profile = const AssetGenImage(
+    'assets/images/Profile.png',
+  );
+  final SvgGenImage search = const SvgGenImage('assets/images/Search.svg');
   final AssetGenImage bookDetails = const AssetGenImage(
     'assets/images/bookDetails.png',
   );
@@ -20,6 +28,7 @@ class $AssetsImagesGen {
   );
   final AssetGenImage logoPng = const AssetGenImage('assets/images/logo.png');
   final SvgGenImage logoSvg = const SvgGenImage('assets/images/logo.svg');
+  final SvgGenImage shelf = const SvgGenImage('assets/images/shelf.svg');
 }
 
 class AssetGenImage {

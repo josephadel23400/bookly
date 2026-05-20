@@ -20,6 +20,7 @@ class SizeManager {
   static double get screenSizeH15 => .15.sh;
   static double get screenSizeH5 => .05.sh;
   static double get screenSizeH10 => .10.sh;
+  static double get screenSizeH100 => 1.sh;
   static double get screenSizeW50 => .5.sw;
   static double get screenSizeW25 => .25.sw;
   static double get screenSizeW80 => .80.sw;
@@ -27,6 +28,7 @@ class SizeManager {
   static double get screenSizeW15 => .15.sw;
   static double get screenSizeW5 => .05.sw;
   static double get screenSizeW10 => .10.sw;
+  static double get screenSizeW100 => 1.sw;
 
   //border radius
   static double get radiusSm => 8.r;
