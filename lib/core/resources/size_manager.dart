@@ -6,6 +6,7 @@ class SizeManager {
   static double get blockSizeV => .01.sw;
 
   // text size get
+  static double get smallFontSize13 => 13.sp;
   static double get smallFontSize14 => 14.sp;
   static double get smallFontSize16 => 16.sp;
   static double get mediumFontSize20 => 20.sp;

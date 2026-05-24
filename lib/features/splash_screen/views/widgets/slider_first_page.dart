@@ -1,8 +1,8 @@
-import 'package:bookly/core/resources/theme_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/resources/colors_manager.dart';
+import '../../../../core/resources/styles_manager.dart';
 import 'bookly_animation.dart';
 
 class SliderFirstPage extends StatelessWidget {

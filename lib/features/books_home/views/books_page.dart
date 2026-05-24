@@ -1,4 +1,4 @@
-import 'package:bookly/features/books_home/views/widgets/book_listview.dart';
+import 'package:bookly/core/widgets/book_listview.dart';
 import 'package:bookly/features/books_home/views/widgets/custom_app_bar.dart';
 import 'package:bookly/features/books_home/views/widgets/float_navigation_bar.dart';
 import 'package:bookly/features/books_home/views/widgets/horizontal_books_ads.dart';
@@ -20,8 +20,8 @@ class BooksPage extends StatelessWidget {
                 children: [
                   CustomAppBar(),
                   HorizontalBooksAds(),
-                  BooksListView(),
-                  SizedBox(height: 70.h,)
+                  BooksListView(listTitle: 'Best Seller'),
+                  SizedBox(height: 80.h),
                 ],
               ),
             ),

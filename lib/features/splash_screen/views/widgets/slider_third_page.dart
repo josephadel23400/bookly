@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/resources/assets_manager.dart';
 import '../../../../core/resources/colors_manager.dart';
+import '../../../../core/resources/styles_manager.dart';
 
 class SliderThirdPage extends StatelessWidget {
   const SliderThirdPage({super.key});
@@ -65,7 +66,7 @@ class SliderThirdPage extends StatelessWidget {
                 elevation: 0, // remove default shadow so only your glow shows
               ),
               onPressed: () {
-                context.go('/books');
+                context.push('/books');
               },
               child: Text(
                 'LOG IN TO BUY & DOWNLOAD',

@@ -1,8 +1,8 @@
 import 'package:bookly/core/resources/colors_manager.dart';
 import 'package:bookly/core/resources/size_manager.dart';
-import 'package:bookly/core/resources/theme_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/resources/styles_manager.dart';
 
 class BookCardView extends StatelessWidget {
   const BookCardView({
@@ -24,15 +24,15 @@ class BookCardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(bottom: 25.h),
-      height: 125.h,
+      padding: EdgeInsets.only(bottom: 10.h),
+      //height: 120.h,
       width: SizeManager.screenSizeW90,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            height: 115.h,
-            width: 70.w,
+            height: 107.h,
+            width: 75.w,
             padding: EdgeInsets.only(right: 25.w),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(
@@ -50,18 +50,25 @@ class BookCardView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name, style: TextStylesManager.displayMedium(context)),
-                SizedBox(height: 7.h),
+                Text(
+                  name,
+                  style: TextStylesManager.titleMedium(
+                    context,
+                    size: SizeManager.mediumFontSize18,
+                  ),
+                ),
+                SizedBox(height: 2.h),
 
                 Text(
                   author,
                   style: TextStylesManager.displaySmall(
                     color: ColorsManager.whiteColor.withValues(alpha: .5),
                     context,
+                    fontWeight: FontWeight.w500,
                     size: SizeManager.smallFontSize14,
                   ),
                 ),
-                SizedBox(height: 7.h),
+                SizedBox(height: 2.h),
 
                 Row(
                   children: [
@@ -69,24 +76,29 @@ class BookCardView extends StatelessWidget {
                       '$price \$',
                       style: TextStylesManager.displayMedium(
                         context,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
+                        size: 24.sp,
                       ),
                     ),
                     Spacer(),
                     Icon(
-                      size: 13.h,
+                      size: 15.h,
                       Icons.star_rate_rounded,
                       color: ColorsManager.yellowColor,
                     ),
                     Text(
                       '$bookRating \$',
-                      style: TextStylesManager.displaySmall(context),
+                      style: TextStylesManager.displaySmall(
+                        context,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     Text(
                       '($views)',
                       style: TextStylesManager.displaySmall(
                         context,
                         size: SizeManager.smallFontSize14,
+                        fontWeight: FontWeight.w500,
                         color: ColorsManager.whiteColor.withValues(alpha: .5),
                       ),
                     ),

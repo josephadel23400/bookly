@@ -4,19 +4,19 @@ import 'package:bookly/core/resources/colors_manager.dart';
 import 'package:bookly/core/resources/size_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../core/resources/routs_manager.dart';
 
 class BookshelfCard extends StatelessWidget {
   const BookshelfCard({super.key, required this.image, required this.bookId});
-  final  String image;
-  final  int bookId;
+  final String image;
+  final int bookId;
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(image),
-          fit: BoxFit.fill,
-        ),
+        image: DecorationImage(image: AssetImage(image), fit: BoxFit.fill),
         borderRadius: BorderRadiusGeometry.circular(SizeManager.radiusSm),
       ),
       child: Stack(
@@ -28,6 +28,7 @@ class BookshelfCard extends StatelessWidget {
               color: ColorsManager.whiteColor,
               onPressed: () {
                 print('nigga $bookId');
+                context.push(Routes.bookDetails);
               },
               icon: ClipRRect(
                 borderRadius: BorderRadius.circular(SizeManager.radiusFull),
@@ -41,7 +42,6 @@ class BookshelfCard extends StatelessWidget {
                         SizeManager.radiusFull,
                       ),
                     ),
-
                     child: Icon(Icons.play_arrow_rounded, size: 20.sp),
                   ),
                 ),

@@ -21,7 +21,7 @@ class FloatNavigationBar extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
           child: Container(
-            color: ColorsManager.whiteColor.withValues(alpha: .5),
+            color: ColorsManager.whiteColor.withValues(alpha: .3),
             width: SizeManager.screenSizeW80,
             height: 60.h,
             child: Row(
@@ -70,7 +70,7 @@ class FloatNavigationBar extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: Image.asset(ImageManager.profileImage),
+                  icon: Image.asset(ImageManager.profileImage, height: 45.h),
                 ),
               ],
             ),

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/resources/colors_manager.dart';
+import '../../../../core/resources/styles_manager.dart';
 
 class SliderSecondPage extends StatelessWidget {
   const SliderSecondPage({super.key});
