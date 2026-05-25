@@ -7,8 +7,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/resources/routs_manager.dart';
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+class HomePageAppBar extends StatelessWidget {
+  const HomePageAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {

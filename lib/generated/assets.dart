@@ -20,6 +20,11 @@ class $AssetsImagesGen {
     'assets/images/Profile.png',
   );
   final SvgGenImage search = const SvgGenImage('assets/images/Search.svg');
+  final AssetGenImage book4 = const AssetGenImage('assets/images/book4.png');
+  final AssetGenImage book5 = const AssetGenImage('assets/images/book5.png');
+  final AssetGenImage book6 = const AssetGenImage('assets/images/book6.png');
+  final AssetGenImage book7 = const AssetGenImage('assets/images/book7.png');
+  final AssetGenImage book8 = const AssetGenImage('assets/images/book8.png');
   final AssetGenImage bookDetails = const AssetGenImage(
     'assets/images/bookDetails.png',
   );

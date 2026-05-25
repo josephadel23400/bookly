@@ -1,15 +1,11 @@
-import 'package:bookly/core/app/app_cubit/app_cubit.dart';
+import 'package:bookly/core/resources/colors_manager.dart';
 import 'package:bookly/core/resources/size_manager.dart';
-import 'package:bookly/core/widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/resources/colors_manager.dart';
-
-class BookDetailsAppBar extends StatelessWidget {
-  const BookDetailsAppBar({super.key});
+class BookPreviewAppBar extends StatelessWidget {
+  const BookPreviewAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +22,6 @@ class BookDetailsAppBar extends StatelessWidget {
             //foregroundColor: ColorsManager.darkGrayColor,
             child: IconButton(
               onPressed: () {
-                context.read<AppCubit>().goBack();
                 context.pop();
               },
               icon: Icon(
@@ -39,7 +34,7 @@ class BookDetailsAppBar extends StatelessWidget {
           ),
 
           Text(
-              'Book Details',
+            'Free Preview',
             style: TextStyle(
               fontWeight: FontWeight.w700,
               color: ColorsManager.whiteColor.withValues(alpha: .7),

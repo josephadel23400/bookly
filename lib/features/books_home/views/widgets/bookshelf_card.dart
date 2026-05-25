@@ -1,22 +1,27 @@
 import 'dart:ui';
-
+import 'package:bookly/core/data/book_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bookly/core/resources/colors_manager.dart';
 import 'package:bookly/core/resources/size_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/app/app_cubit/app_cubit.dart';
 import '../../../../core/resources/routs_manager.dart';
 
 class BookshelfCard extends StatelessWidget {
-  const BookshelfCard({super.key, required this.image, required this.bookId});
-  final String image;
-  final int bookId;
+  const BookshelfCard({super.key, required this.book});
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(image), fit: BoxFit.fill),
+        image: DecorationImage(
+          //TODO: CHANGE TO NETWORK IMAGE
+          image: AssetImage(book.image!),
+          fit: BoxFit.fill,
+        ),
         borderRadius: BorderRadiusGeometry.circular(SizeManager.radiusSm),
       ),
       child: Stack(
@@ -27,7 +32,8 @@ class BookshelfCard extends StatelessWidget {
             child: IconButton(
               color: ColorsManager.whiteColor,
               onPressed: () {
-                print('nigga $bookId');
+                print('nigga ${book.id}');
+                context.read<AppCubit>().selectBook(book);
                 context.push(Routes.bookDetails);
               },
               icon: ClipRRect(
