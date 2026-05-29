@@ -17,7 +17,7 @@ ThemeData getApplicationTheme() {
     textTheme: TextTheme(
       //displaySmall
       displaySmall: TextStyle(
-        fontFamily: 'Montserrat',
+        //fontFamily: 'Montserrat',
         color: ColorsManager.whiteColor,
         fontWeight: FontWeight.w300,
         fontSize: SizeManager.smallFontSize16,
@@ -30,7 +30,7 @@ ThemeData getApplicationTheme() {
       ),
       //displayMedium
       displayMedium: TextStyle(
-        fontFamily: 'Montserrat',
+       // fontFamily: 'Montserrat',
         color: ColorsManager.whiteColor,
         fontWeight: FontWeight.w400,
         fontSize: SizeManager.mediumFontSize20,

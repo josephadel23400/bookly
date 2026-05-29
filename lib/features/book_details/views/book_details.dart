@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:bookly/core/resources/colors_manager.dart';
+import 'package:bookly/core/widgets/go_to_home_page_icon.dart';
 import 'package:bookly/features/book_details/views/widgets/book_details_app_bar.dart';
 import 'package:bookly/features/book_details/views/widgets/book_details_body.dart';
 import 'package:bookly/features/book_details/views/widgets/you_can_also_like.dart';
@@ -16,26 +17,6 @@ class BookDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: IconButton(
-        onPressed: () {
-          context.go(Routes.booksPage);
-        },
-        icon: ClipOval(
-          child: Container(
-            height: 55.h,
-            width: 55.h,
-            color: ColorsManager.whiteColor.withValues(alpha: .3),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
-              child: Icon(
-                color: ColorsManager.whiteColor,
-                Icons.home_rounded,
-                size: 35.h,
-              ),
-            ),
-          ),
-        ),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -49,6 +30,7 @@ class BookDetails extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: GoToHomePageIcon(),
     );
   }
 }

@@ -35,7 +35,10 @@ class FloatNavigationBar extends StatelessWidget {
                 NavItem(
                   index: 0,
                   currentIndex: currentIndex,
-                  child: SvgPicture.asset(ImageManager.bookIconSVG),
+                  child: Icon(
+                    Icons.grid_view_rounded,
+                    color: ColorsManager.whiteColor,
+                  ),
                 ),
                 NavItem(
                   index: 1,
@@ -46,7 +49,7 @@ class FloatNavigationBar extends StatelessWidget {
                   index: 2,
                   currentIndex: currentIndex,
                   child: Icon(
-                    Icons.folder_copy_rounded,
+                    Icons.auto_stories,
                     color: ColorsManager.whiteColor,
                   ),
                 ),

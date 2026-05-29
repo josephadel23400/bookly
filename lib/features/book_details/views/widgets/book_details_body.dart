@@ -3,6 +3,7 @@ import 'package:bookly/core/data/book_model.dart';
 import 'package:bookly/core/resources/colors_manager.dart';
 import 'package:bookly/core/resources/size_manager.dart';
 import 'package:bookly/core/resources/styles_manager.dart';
+import 'package:bookly/features/book_details/manager/book_details_cubit/book_details_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -85,29 +86,23 @@ class BookDetailsBody extends StatelessWidget {
           Hero(
             tag: 'preview',
             child: Material(
-              child: Container(
-                //padding: EdgeInsets.only(top: 30.h),
-                decoration: BoxDecoration(
-                  color: ColorsManager.whiteColor,
-                  borderRadius: BorderRadius.circular(SizeManager.radiusFull),
-                ),
-                child: GestureDetector(
-                  onTap: () {
-                    context.push(Routes.previewBook);
-
-                    // your action here
-                  },
+              color: Colors.transparent,
+              child: GestureDetector(
+                onTap: () {
+                  final cubit = context.read<BookDetailsCubit>();
+                  cubit.setDropCapLetter();
+                  context.push(Routes.previewBook, extra: cubit); // 👈 pass cubit
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: ColorsManager.whiteColor,
+                    borderRadius: BorderRadius.circular(SizeManager.radiusFull),
+                  ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // Left: Price
-
-                      // Right: Button
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 10,
-                        ),
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         child: Text(
                           '${book.price}€',
                           style: TextStyle(
@@ -118,12 +113,9 @@ class BookDetailsBody extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 22,
-                          vertical: 10,
-                        ),
+                        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
                         decoration: BoxDecoration(
-                          color: Color(0xFFE8826A), // salmon/coral color
+                          color: Color(0xFFE8826A),
                           borderRadius: BorderRadius.circular(999),
                         ),
                         child: Text(

@@ -6,6 +6,7 @@ import 'package:bookly/features/splash_screen/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import '../../features/book_details/manager/book_details_cubit/book_details_cubit.dart';
 import '../../features/book_details/views/book_details.dart';
 import '../../features/book_details/views/book_preview/book_preview.dart';
 import '../../features/books_home/views/books_page.dart';
@@ -85,7 +86,10 @@ class RoutsManager {
       GoRoute(
         path: Routes.bookDetails,
         builder: (context, state) {
-          return BookDetails();
+          return BlocProvider(
+            create: (context) => BookDetailsCubit(),
+            child: BookDetails(),
+          );
         },
       ),
       GoRoute(
@@ -100,7 +104,12 @@ class RoutsManager {
       GoRoute(
         path: Routes.previewBook,
         builder: (context, state) {
-          return BookPreview();
+          final cubit =
+              state.extra as BookDetailsCubit; // 👈 receive existing cubit
+          return BlocProvider.value(
+            value: cubit, // 👈 .value = don't create new, use existing
+            child: BookPreview(),
+          );
         },
       ),
     ],

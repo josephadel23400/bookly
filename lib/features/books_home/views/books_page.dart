@@ -10,15 +10,17 @@ class BooksPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          HomePageAppBar(),
-          HorizontalBooksAds(),
-          BooksListView(listTitle: 'Best Seller'),
-          SizedBox(height: 80.h),
-        ],
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            HomePageAppBar(),
+            HorizontalBooksAds(),
+            BooksListView(listTitle: 'Best Seller'),
+            SizedBox(height: 80.h),
+          ],
+        ),
       ),
     );
   }

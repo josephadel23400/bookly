@@ -10,29 +10,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../manager/book_details_cubit/book_details_cubit.dart';
+
 class BookPreview extends StatelessWidget {
   const BookPreview({super.key});
 
   @override
   Widget build(BuildContext context) {
     final BookModel book = context.read<AppCubit>().state.selectedBook!;
-    return Scaffold(
-      // Scaffold OUTSIDE
-      body: SafeArea(
-        child: Hero(
-          tag: 'preview',
-          child: Material(
-            color: Colors.transparent,
-            child: Column(
-              children: [
-                BookPreviewAppBar(),
-                BookPreviewInfoPart(book: book),
-                Divider(),
-                BookPreviewTextPart(),
-              ],
+    final cubit = context.read<BookDetailsCubit>();
+    return BlocProvider.value(
+      value: cubit,
+      child: Builder(              // 👈 Builder gives a new context below the provider
+        builder: (context) {
+          return Scaffold(
+            body: SafeArea(
+              child: Column(
+                children: [
+                  BookPreviewAppBar(),
+                  Hero(
+                    tag: 'preview',
+                    child: Material(
+                      color: Colors.transparent,
+                      child: BookPreviewInfoPart(book: book),
+                    ),
+                  ),
+
+                  Divider(),
+                  BookPreviewTextPart(), // 👈 now finds cubit correctly
+                ],
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }
