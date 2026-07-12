@@ -2,6 +2,8 @@ import 'package:bookly/core/data/book_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../data/user_book_model.dart';
+
 part 'app_state.dart';
 
 class AppCubit extends Cubit<AppState> {
@@ -14,6 +16,10 @@ class AppCubit extends Cubit<AppState> {
 
   void changeTab(int index) {
     emit(state.copyWith(currentTabIndex: index));
+  }
+
+  void selectUserBook(BookModel book, UserBookModel userBookStatus) {
+    emit(state.copyWith(selectedBook: book, selectedUserBook: userBookStatus));
   }
 
   void goBack() {

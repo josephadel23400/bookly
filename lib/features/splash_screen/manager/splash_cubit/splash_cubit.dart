@@ -16,7 +16,6 @@ class SplashCubit extends Cubit<SplashState> {
       print('\n \n next == 2 $pageNum after \n\n');
     } else {
       print('\n \n next else $pageNum  \n\n');
-
       pageNum += 1;
       print('\n \n next else $pageNum after \n\n');
     }

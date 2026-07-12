@@ -18,7 +18,7 @@ class LogoAndButtonAppBar extends StatelessWidget {
         children: [
           SvgPicture.asset(ImageManager.logoSvg, height: 16.1.h),
           CircleAvatar(
-            backgroundColor: ColorsManager.darkGunmetalGreyColor,
+            backgroundColor: ColorsManager.iconButtonBackgroundGreyColor,
             radius: 22.r,
             //foregroundColor: ColorsManager.darkGrayColor,
             child: widgetIcon,

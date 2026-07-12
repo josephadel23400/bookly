@@ -16,6 +16,7 @@ class $AssetsAssetsGen {
   const $AssetsAssetsGen();
 
   final $AssetsImagesGen images = const $AssetsImagesGen();
+  final $AssetsPdfsGen pdfs = const $AssetsPdfsGen();
 }
 
 class $AssetsImagesGen {
@@ -37,12 +38,23 @@ class $AssetsImagesGen {
   final AssetGenImage bookDetails = const AssetGenImage(
     'assets/images/bookDetails.png',
   );
+  final SvgGenImage bookIconSvg = const SvgGenImage(
+    'assets/images/bookIconSvg.svg',
+  );
   final AssetGenImage bookMain = const AssetGenImage(
     'assets/images/bookMain.png',
   );
   final AssetGenImage logoPng = const AssetGenImage('assets/images/logo.png');
   final SvgGenImage logoSvg = const SvgGenImage('assets/images/logo.svg');
   final SvgGenImage shelf = const SvgGenImage('assets/images/shelf.svg');
+}
+
+class $AssetsPdfsGen {
+  const $AssetsPdfsGen();
+
+  final String aTaleOfTwoCities = 'assets/pdfs/a-tale-of-two-cities.pdf';
+  final String theAdventuresOfHuckleberryFinn =
+      'assets/pdfs/the-adventures-of-huckleberry-finn.pdf';
 }
 
 class AssetGenImage {

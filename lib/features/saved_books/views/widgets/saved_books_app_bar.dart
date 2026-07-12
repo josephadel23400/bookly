@@ -38,13 +38,10 @@ class SavedBooksAppBar extends StatelessWidget {
           PopupMenuItem(
             value: 'newest',
             child: SizedBox(
-              width:  119.w,
+              width: 119.w,
               child: Row(
                 children: [
-                  Icon(
-                    Icons.north_rounded,
-                    color: ColorsManager.orangeColor,
-                  ),
+                  Icon(Icons.north_rounded, color: ColorsManager.orangeColor),
                   SizedBox(width: 4),
                   Text('Newest'),
                 ],
@@ -54,13 +51,10 @@ class SavedBooksAppBar extends StatelessWidget {
           PopupMenuItem(
             value: 'oldest',
             child: SizedBox(
-              width:  119.w,
+              width: 119.w,
               child: Row(
                 children: [
-                  Icon(
-                    Icons.south_rounded,
-                    color: ColorsManager.orangeColor,
-                  ),
+                  Icon(Icons.south_rounded, color: ColorsManager.orangeColor),
                   SizedBox(width: 4),
                   Text('Oldest'),
                 ],

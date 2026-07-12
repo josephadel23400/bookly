@@ -1,10 +1,12 @@
 import 'dart:ui';
 
 import 'package:bookly/core/resources/colors_manager.dart';
+import 'package:bookly/core/resources/routs_manager.dart';
 import 'package:bookly/features/splash_screen/manager/splash_cubit/splash_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/resources/size_manager.dart';
 
@@ -76,6 +78,9 @@ class SplashBottomSheetWidget extends StatelessWidget {
                         color: ColorsManager.whiteColor,
                       ),
                       onTap: () {
+                        if (context.read<SplashCubit>().pageNum == 2) {
+                          context.go(Routes.booksPage);
+                        }
                         context.read<SplashCubit>().nextPage();
                       },
                     ),

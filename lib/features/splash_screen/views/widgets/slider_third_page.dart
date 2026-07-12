@@ -34,50 +34,50 @@ class SliderThirdPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: SizeManager.paddingLg),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(SizeManager.radiusFull),
-              boxShadow: [
-                // outer glow
-                BoxShadow(
-                  color: ColorsManager.lightBlueColor.withValues(alpha: 0.6),
-                  blurRadius: 15.r,
-                  spreadRadius: 2.r,
-                ),
-                // inner glow (negative spread pulls it inward)
-                BoxShadow(
-                  color: ColorsManager.lightBlueColor.withValues(alpha: 0.3),
-                  blurRadius: 8.r,
-                  spreadRadius: -2.r,
-                ),
-              ],
-            ),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: ColorsManager.glowingBlueColor.withValues(alpha: .4),
-                    width: 1.5.w,
-                  ),
-                  borderRadius: BorderRadius.circular(SizeManager.radiusFull),
-                ),
-                fixedSize: Size(SizeManager.screenSizeW90, 55.h),
-                backgroundColor: ColorsManager.darkBlueColor, // dark navy fill
-                elevation: 0, // remove default shadow so only your glow shows
-              ),
-              onPressed: () {
-                context.push('/books');
-              },
-              child: Text(
-                'LOG IN TO BUY & DOWNLOAD',
-                style: TextStylesManager.displayLarge(
-                  context,
-                  size: SizeManager.mediumFontSize18,
-                  color: ColorsManager.whiteColor,
-                ),
-              ),
-            ),
-          ),
+          // Container(
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(SizeManager.radiusFull),
+          //     boxShadow: [
+          //       // outer glow
+          //       BoxShadow(
+          //         color: ColorsManager.lightBlueColor.withValues(alpha: 0.6),
+          //         blurRadius: 15.r,
+          //         spreadRadius: 2.r,
+          //       ),
+          //       // inner glow (negative spread pulls it inward)
+          //       BoxShadow(
+          //         color: ColorsManager.lightBlueColor.withValues(alpha: 0.3),
+          //         blurRadius: 8.r,
+          //         spreadRadius: -2.r,
+          //       ),
+          //     ],
+          //   ),
+          //   child: ElevatedButton(
+          //     style: ElevatedButton.styleFrom(
+          //       shape: RoundedRectangleBorder(
+          //         side: BorderSide(
+          //           color: ColorsManager.glowingBlueColor.withValues(alpha: .4),
+          //           width: 1.5.w,
+          //         ),
+          //         borderRadius: BorderRadius.circular(SizeManager.radiusFull),
+          //       ),
+          //       fixedSize: Size(SizeManager.screenSizeW90, 55.h),
+          //       backgroundColor: ColorsManager.darkBlueColor, // dark navy fill
+          //       elevation: 0, // remove default shadow so only your glow shows
+          //     ),
+          //     onPressed: () {
+          //       context.push('/books');
+          //     },
+          //     child: Text(
+          //       'LOG IN TO BUY & DOWNLOAD',
+          //       style: TextStylesManager.displayLarge(
+          //         context,
+          //         size: SizeManager.mediumFontSize18,
+          //         color: ColorsManager.whiteColor,
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

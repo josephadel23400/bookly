@@ -12,6 +12,10 @@ ThemeData getApplicationTheme() {
     brightness: Brightness.dark,
     highlightColor: ColorsManager.whiteColor,
     splashColor: ColorsManager.whiteColor,
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: ColorsManager.iconOrangeColor,
+      selectionHandleColor: ColorsManager.buttonOrangeColor,
+    ),
 
     //TEXT STYLE
     textTheme: TextTheme(
@@ -30,7 +34,7 @@ ThemeData getApplicationTheme() {
       ),
       //displayMedium
       displayMedium: TextStyle(
-       // fontFamily: 'Montserrat',
+        // fontFamily: 'Montserrat',
         color: ColorsManager.whiteColor,
         fontWeight: FontWeight.w400,
         fontSize: SizeManager.mediumFontSize20,

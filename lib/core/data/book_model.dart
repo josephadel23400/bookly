@@ -38,7 +38,7 @@ List<BookModel> books = [
   BookModel(
     bookPreview: '',
     bookName: 'The Jungle Book',
-    id: 654684351,
+    id: 654684359,
     author: 'Rudyard Kipling',
     image: ImageManager.bookI1mage,
     rate: 3.9,
@@ -68,7 +68,7 @@ List<BookModel> books = [
   BookModel(
     bookPreview: '',
     bookName: 'Harry Potter and the Goblet of Fire',
-    id: 654684351,
+    id: 654684358,
     author: 'J.K. Rowling',
     image: ImageManager.bookI4mage,
     rate: 4.8,
