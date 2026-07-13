@@ -1,5 +1,6 @@
 import 'package:bookly/core/resources/string_manager.dart';
 import 'package:bookly/features/books_home/manager/home_cubit/home_cubit.dart';
+
 import 'package:bookly/features/my_books/manager/my_books_cubit/my_books_cubit.dart';
 import 'package:bookly/features/profile/manager/profile_cubit/profile_cubit.dart';
 import 'package:bookly/features/profile/notifications/manager/notifications_cubit/notifications_cubit.dart';
@@ -14,10 +15,17 @@ import 'package:bookly/features/user_book_details/manager/user_book_details_cubi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import '../../features/auth/forget_password/manager/forget_password_cubit/forget_password_cubit.dart';
+import '../../features/auth/forget_password/views/forget_password_page.dart';
+import '../../features/auth/log_in/manager/log_in_cubit/log_in_cubit.dart';
+import '../../features/auth/log_in/views/log_in_page.dart';
+import '../../features/auth/sign_up/manager/sign_up_cubit/sign_up_cubit.dart';
+import '../../features/auth/sign_up/views/sign_up_page.dart';
 import '../../features/book_details/manager/book_details_cubit/book_details_cubit.dart';
 import '../../features/book_details/views/book_details.dart';
 import '../../features/book_details/views/book_preview/book_preview.dart';
 import '../../features/books_home/views/books_page.dart';
+
 import '../../features/my_books/views/my_books_page.dart';
 import '../../features/profile/edit_profile/manager/edit_profile_cubit/edit_profile_cubit.dart';
 import '../../features/profile/edit_profile/view/edit_profile_page.dart';
@@ -31,15 +39,18 @@ import '../widgets/app_shell.dart';
 
 class Routes {
   static const String splashPage = '/';
+  static const String logInPage = '/logInPage';
+  static const String signUpPage = '/signUpPage';
+  static const String forgetPasswordPage = '/forgetPasswordPage';
   static const String booksPage = '/books';
   static const String bookDetails = '/bookDetails';
   static const String searchForBook = '/search';
   static const String previewBook = '/preview';
   static const String savedBooks = '/savedBooks';
   static const String myBooks = '/myBooks';
-  static const String profile = '/profile';
   static const String userBookDetails = '/userBookDetails';
   static const String bookReadingPage = '/bookReadingPage';
+  static const String profile = '/profile';
   static const String editProfilePage = '/editProfilePage';
   static const String notificationsPage = '/notificationsPage';
   static const String privacyAndSecurityPage = '/privacyAndSecurityPage';
@@ -69,6 +80,30 @@ class RoutsManager {
           return BlocProvider(
             create: (context) => SplashCubit(),
             child: SplashScreen(),
+          );
+        },
+      ), GoRoute(
+        path: Routes.logInPage,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => LogInCubit(),
+            child: LogInPage(),
+          );
+        },
+      ), GoRoute(
+        path: Routes.signUpPage,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => SignUpCubit(),
+            child: SignUpPage(),
+          );
+        },
+      ), GoRoute(
+        path: Routes.forgetPasswordPage,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => ForgetPasswordCubit(),
+            child: ForgetPasswordPage(),
           );
         },
       ),
@@ -106,7 +141,6 @@ class RoutsManager {
           ),
         ],
       ),
-
       GoRoute(
         path: Routes.bookDetails,
         builder: (context, state) {
@@ -117,14 +151,27 @@ class RoutsManager {
         },
       ),
       GoRoute(
-        path: Routes.editProfilePage,
+        path: Routes.previewBook,
         builder: (context, state) {
-          return BlocProvider(
-            create: (context) => EditProfileCubit(),
-            child: EditProfilePage(),
+          final cubit =
+          state.extra as BookDetailsCubit; // 👈 receive existing cubit
+          return BlocProvider.value(
+            value: cubit, // 👈 .value = don't create new, use existing
+            child: BookPreview(),
           );
         },
       ),
+
+      GoRoute(
+        path: Routes.searchForBook,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => SearchForBookCubit(),
+            child: SearchPage(),
+          );
+        },
+      ),
+
       GoRoute(
         path: Routes.userBookDetails,
         builder: (context, state) {
@@ -133,15 +180,6 @@ class RoutsManager {
                 UserBookDetailsCubit(appCubit: context.read<AppCubit>())
                   ..loadingData(),
             child: UserBookDetailsPage(),
-          );
-        },
-      ),
-      GoRoute(
-        path: Routes.searchForBook,
-        builder: (context, state) {
-          return BlocProvider(
-            create: (context) => SearchForBookCubit(),
-            child: SearchPage(),
           );
         },
       ),
@@ -155,6 +193,15 @@ class RoutsManager {
         },
       ),
       GoRoute(
+        path: Routes.editProfilePage,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => EditProfileCubit(),
+            child: EditProfilePage(),
+          );
+        },
+      ),
+      GoRoute(
         path: Routes.notificationsPage,
         builder: (context, state) {
           return BlocProvider(
@@ -162,7 +209,8 @@ class RoutsManager {
             child: NotificationsPage(),
           );
         },
-      ), GoRoute(
+      ),
+      GoRoute(
         path: Routes.privacyAndSecurityPage,
         builder: (context, state) {
           return BlocProvider(
@@ -171,17 +219,8 @@ class RoutsManager {
           );
         },
       ),
-      GoRoute(
-        path: Routes.previewBook,
-        builder: (context, state) {
-          final cubit =
-              state.extra as BookDetailsCubit; // 👈 receive existing cubit
-          return BlocProvider.value(
-            value: cubit, // 👈 .value = don't create new, use existing
-            child: BookPreview(),
-          );
-        },
-      ),
+
+
     ],
     errorBuilder: (context, state) =>
         Scaffold(body: Center(child: Text(StringManager.errorRouteMessage))),

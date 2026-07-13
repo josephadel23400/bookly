@@ -1,5 +1,4 @@
 class ImageManager {
-
   // Pngs
   static const String logoPng = 'assets/images/logo.png';
   static const String bookDetails = 'assets/images/bookDetails.png';
@@ -13,6 +12,8 @@ class ImageManager {
   static const String bookI7mage = 'assets/images/book7.png';
   static const String bookI8mage = 'assets/images/book8.png';
   static const String profileImage = 'assets/images/Profile.png';
+  static const String appleImage = 'assets/images/apple.png';
+  static const String googleImage = 'assets/images/google-symbol.png';
 
   // Svgs
   static const String logoSvg = 'assets/images/logo.svg';
@@ -20,6 +21,8 @@ class ImageManager {
   static const String bookIconSVG = 'assets/images/Books.svg';
   static const String emptyBookIconSVG = 'assets/images/bookIconSvg.svg';
   static const String shelfIconSVG = 'assets/images/shelf.svg';
+  static const String appleIconSVG = 'assets/images/apple_logo.svg';
+  static const String googleIconSVG = 'assets/images/google_logo.svg';
 
   //Pdfs
   static const String book1Pdf = 'assets/pdfs/a-tale-of-two-cities.pdf';

@@ -79,7 +79,7 @@ class SplashBottomSheetWidget extends StatelessWidget {
                       ),
                       onTap: () {
                         if (context.read<SplashCubit>().pageNum == 2) {
-                          context.go(Routes.booksPage);
+                          context.go(Routes.logInPage);
                         }
                         context.read<SplashCubit>().nextPage();
                       },

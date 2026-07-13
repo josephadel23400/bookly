@@ -30,6 +30,10 @@ class $AssetsImagesGen {
     'assets/images/Profile.png',
   );
   final SvgGenImage search = const SvgGenImage('assets/images/Search.svg');
+  final AssetGenImage apple = const AssetGenImage('assets/images/apple.png');
+  final SvgGenImage appleLogo = const SvgGenImage(
+    'assets/images/apple_logo.svg',
+  );
   final AssetGenImage book4 = const AssetGenImage('assets/images/book4.png');
   final AssetGenImage book5 = const AssetGenImage('assets/images/book5.png');
   final AssetGenImage book6 = const AssetGenImage('assets/images/book6.png');
@@ -43,6 +47,12 @@ class $AssetsImagesGen {
   );
   final AssetGenImage bookMain = const AssetGenImage(
     'assets/images/bookMain.png',
+  );
+  final AssetGenImage googleSymbol = const AssetGenImage(
+    'assets/images/google-symbol.png',
+  );
+  final SvgGenImage googleLogo = const SvgGenImage(
+    'assets/images/google_logo.svg',
   );
   final AssetGenImage logoPng = const AssetGenImage('assets/images/logo.png');
   final SvgGenImage logoSvg = const SvgGenImage('assets/images/logo.svg');

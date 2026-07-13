@@ -10,13 +10,17 @@ class CustomTextField extends StatelessWidget {
     this.maxLines = 1,
     this.enabled = true,
     this.onChanged,
+    this.suffixIcon,
     this.controller,
+    this.obscureText=false,
   });
   final String label;
   final String? hint;
+  final Widget? suffixIcon;
   final TextInputType? keyboardType;
   final int maxLines;
   final bool enabled;
+  final bool obscureText;
   final TextEditingController? controller;
   final void Function(String?)? onChanged;
 
@@ -45,6 +49,8 @@ class CustomTextField extends StatelessWidget {
             enabled: enabled,
             controller: controller,
             onChanged: onChanged,
+            obscureText: obscureText,
+
             style: TextStyle(
               color: enabled
                   ? ColorsManager.whiteColor
@@ -58,7 +64,7 @@ class CustomTextField extends StatelessWidget {
                 color: ColorsManager.grayTextColor,
                 fontSize: 15,
               ),
-
+              suffixIcon: suffixIcon,
               border: InputBorder.none,
               contentPadding: const EdgeInsets.symmetric(
                 horizontal: 16,
