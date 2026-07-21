@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:bookly/core/resources/colors_manager.dart';
 import 'package:bookly/core/resources/routs_manager.dart';
+import 'package:bookly/core/resources/styles_manager.dart';
 import 'package:bookly/features/splash_screen/manager/splash_cubit/splash_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -49,6 +50,7 @@ class SplashBottomSheetWidget extends StatelessWidget {
                       ),
                       onTap: () {
                         context.read<SplashCubit>().previousPage();
+                        context.read<SplashCubit>().checkIfWeInLastPage();
                       },
                     ),
                     Spacer(),
@@ -71,17 +73,32 @@ class SplashBottomSheetWidget extends StatelessWidget {
                       },
                     ),
                     Spacer(),
-                    GestureDetector(
-                      child: Icon(
-                        Icons.keyboard_arrow_right,
-                        size: 35.h,
-                        color: ColorsManager.whiteColor,
-                      ),
-                      onTap: () {
-                        if (context.read<SplashCubit>().pageNum == 2) {
-                          context.go(Routes.logInPage);
-                        }
-                        context.read<SplashCubit>().nextPage();
+                    BlocBuilder<SplashCubit, SplashState>(
+                      builder: (context, state) {
+                        final cubit = context.read<SplashCubit>();
+                        return GestureDetector(
+                          child: cubit.isInLastPage
+                              ? Text(
+                                  'Start now',
+                                  style: TextStylesManager.displaySmall(
+                                    context,
+                                    color: ColorsManager.orangeColor,
+                                    size: SizeManager.smallFontSize14,
+                                  ),
+                                )
+                              : Icon(
+                                  Icons.keyboard_arrow_right,
+                                  size: 35.h,
+                                  color: ColorsManager.whiteColor,
+                                ),
+                          onTap: () {
+                            if (context.read<SplashCubit>().pageNum == 2) {
+                              context.go(Routes.logInPage);
+                            }
+                            context.read<SplashCubit>().nextPage();
+                            cubit.checkIfWeInLastPage();
+                          },
+                        );
                       },
                     ),
                     SizedBox(width: 15.w),

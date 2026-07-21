@@ -1,5 +1,6 @@
 import 'package:bookly/core/resources/assets_manager.dart';
 import 'package:bookly/core/resources/colors_manager.dart';
+import 'package:bookly/core/resources/routs_manager.dart';
 import 'package:bookly/core/resources/size_manager.dart';
 import 'package:bookly/core/resources/styles_manager.dart';
 import 'package:bookly/core/widgets/custom_elevated_icon_button.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class LogInBody extends StatelessWidget {
   const LogInBody({super.key});
@@ -72,18 +74,28 @@ class LogInBody extends StatelessWidget {
         SizedBox(height: 20.h),
         Align(
           alignment: AlignmentGeometry.centerRight,
-          child: Text(
-            'Forget password?',
-            style: TextStylesManager.displaySmall(
-              context,
-              size: SizeManager.smallFontSize14,
-              color: ColorsManager.orangeColor,
+          child: InkWell(
+            onTap: () {
+              context.push(Routes.forgetPasswordPage);
+            },
+            child: Text(
+              'Forget password?',
+              style: TextStylesManager.displaySmall(
+                context,
+                size: SizeManager.smallFontSize14,
+                color: ColorsManager.orangeColor,
+              ),
             ),
           ),
         ),
         SizedBox(height: 30.h),
 
-        CustomTextButton(label: 'Log in', onPressed: () {}),
+        CustomTextButton(
+          label: 'Log in',
+          onPressed: () {
+            context.go(Routes.booksPage);
+          },
+        ),
         SizedBox(height: 30.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -136,7 +148,7 @@ class LogInBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Don\'t have and account?',
+              'Don\'t have and account? ',
               style: TextStylesManager.displaySmall(
                 context,
                 size: SizeManager.smallFontSize15,
@@ -144,6 +156,9 @@ class LogInBody extends StatelessWidget {
               ),
             ),
             InkWell(
+              onTap: () {
+                context.push(Routes.signUpPage);
+              },
               child: Text(
                 'Sign up',
                 style: TextStylesManager.displaySmall(

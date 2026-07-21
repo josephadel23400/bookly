@@ -6,13 +6,13 @@ part 'splash_state.dart';
 
 class SplashCubit extends Cubit<SplashState> {
   PageController controller = PageController();
-
+  bool isInLastPage = false;
   SplashCubit() : super(SplashInitial());
   int pageNum = 0;
   void nextPage() {
     if (pageNum == 2) {
       print('\n \n next == 2 $pageNum \n\n');
-      pageNum = 0;
+      // pageNum = 0;
       print('\n \n next == 2 $pageNum after \n\n');
     } else {
       print('\n \n next else $pageNum  \n\n');
@@ -32,7 +32,7 @@ class SplashCubit extends Cubit<SplashState> {
   void previousPage() {
     if (pageNum == 0) {
       print('\n \n pre == 0 $pageNum \n\n');
-      pageNum = 2;
+      //pageNum = 2;
       print('\n \n pre == 0 after $pageNum \n\n');
     } else {
       print('\n \n prev else  $pageNum \n\n');
@@ -52,5 +52,15 @@ class SplashCubit extends Cubit<SplashState> {
   void changePage(int index) {
     pageNum = index;
     emit(SplashPageChanged(pageNum));
+  }
+
+  void checkIfWeInLastPage() {
+    if (pageNum == 2) {
+      isInLastPage = true;
+      emit(ChangeToLastPage(isInLastPage));
+    }else {
+      isInLastPage = false;
+      emit(ChangeToLastPage(isInLastPage));
+    }
   }
 }

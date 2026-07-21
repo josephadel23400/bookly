@@ -1,4 +1,7 @@
 import 'package:bookly/core/resources/string_manager.dart';
+import 'package:bookly/features/auth/forget_password/new_password/manager/new_password_cubit/new_password_cubit.dart';
+import 'package:bookly/features/auth/forget_password/new_password/views/new_password_page.dart';
+import 'package:bookly/features/auth/otp/manager/otp_cubit/otp_cubit.dart';
 import 'package:bookly/features/books_home/manager/home_cubit/home_cubit.dart';
 
 import 'package:bookly/features/my_books/manager/my_books_cubit/my_books_cubit.dart';
@@ -19,6 +22,7 @@ import '../../features/auth/forget_password/manager/forget_password_cubit/forget
 import '../../features/auth/forget_password/views/forget_password_page.dart';
 import '../../features/auth/log_in/manager/log_in_cubit/log_in_cubit.dart';
 import '../../features/auth/log_in/views/log_in_page.dart';
+import '../../features/auth/otp/views/otp_page.dart';
 import '../../features/auth/sign_up/manager/sign_up_cubit/sign_up_cubit.dart';
 import '../../features/auth/sign_up/views/sign_up_page.dart';
 import '../../features/book_details/manager/book_details_cubit/book_details_cubit.dart';
@@ -54,6 +58,8 @@ class Routes {
   static const String editProfilePage = '/editProfilePage';
   static const String notificationsPage = '/notificationsPage';
   static const String privacyAndSecurityPage = '/privacyAndSecurityPage';
+  static const String otpPage = '/otpPage';
+  static const String newPassword = '/newPassword';
 }
 
 const tabRoutes = [
@@ -82,7 +88,8 @@ class RoutsManager {
             child: SplashScreen(),
           );
         },
-      ), GoRoute(
+      ),
+      GoRoute(
         path: Routes.logInPage,
         builder: (context, state) {
           return BlocProvider(
@@ -90,7 +97,8 @@ class RoutsManager {
             child: LogInPage(),
           );
         },
-      ), GoRoute(
+      ),
+      GoRoute(
         path: Routes.signUpPage,
         builder: (context, state) {
           return BlocProvider(
@@ -98,12 +106,37 @@ class RoutsManager {
             child: SignUpPage(),
           );
         },
-      ), GoRoute(
+      ),
+      GoRoute(
         path: Routes.forgetPasswordPage,
         builder: (context, state) {
           return BlocProvider(
             create: (context) => ForgetPasswordCubit(),
             child: ForgetPasswordPage(),
+          );
+        },
+      ), GoRoute(
+        path: Routes.otpPage,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => OtpCubit(),
+            child: OtpPage(),
+          );
+        },
+      ),GoRoute(
+        path: Routes.otpPage,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => OtpCubit(),
+            child: OtpPage(),
+          );
+        },
+      ),GoRoute(
+        path: Routes.newPassword,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => NewPasswordCubit(),
+            child: NewPasswordPage(),
           );
         },
       ),
@@ -154,7 +187,7 @@ class RoutsManager {
         path: Routes.previewBook,
         builder: (context, state) {
           final cubit =
-          state.extra as BookDetailsCubit; // 👈 receive existing cubit
+              state.extra as BookDetailsCubit; // 👈 receive existing cubit
           return BlocProvider.value(
             value: cubit, // 👈 .value = don't create new, use existing
             child: BookPreview(),
@@ -219,8 +252,6 @@ class RoutsManager {
           );
         },
       ),
-
-
     ],
     errorBuilder: (context, state) =>
         Scaffold(body: Center(child: Text(StringManager.errorRouteMessage))),

@@ -1,13 +1,12 @@
+import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'sign_up_state.dart';
+part 'new_password_state.dart';
 
-class SignUpCubit extends Cubit<SignUpState> {
-  SignUpCubit() : super(SignUpInitial());
+class NewPasswordCubit extends Cubit<NewPasswordState> {
+  NewPasswordCubit() : super(NewPasswordInitial());
   bool isPasswordObscured = true;
   bool isConfirmPasswordObscured = true;
-  bool agreedToTerms = false;
 
   void togglePasswordVisibility() {
     isPasswordObscured = !isPasswordObscured;
@@ -16,10 +15,9 @@ class SignUpCubit extends Cubit<SignUpState> {
     // the notifications cubit — never emit a state whose props haven't
     // actually changed).
     emit(
-      SignUpPasswordVisibilityChanged(
+      NewPasswordVisibilityChanged(
         isPasswordObscured,
         isConfirmPasswordObscured,
-        agreedToTerms,
       ),
     );
   }
@@ -31,25 +29,9 @@ class SignUpCubit extends Cubit<SignUpState> {
     // the notifications cubit — never emit a state whose props haven't
     // actually changed).
     emit(
-      SignUpPasswordVisibilityChanged(
+      NewPasswordVisibilityChanged(
         isPasswordObscured,
         isConfirmPasswordObscured,
-        agreedToTerms,
-      ),
-    );
-  }
-
-  void toggleAgreedToTerms(bool value) {
-    agreedToTerms = value;
-    // New instance with the flipped value, so Equatable sees it as a
-    // different state and BlocBuilder rebuilds every tap (same fix as
-    // the notifications cubit — never emit a state whose props haven't
-    // actually changed).
-    emit(
-      SignUpPasswordVisibilityChanged(
-        isPasswordObscured,
-        isConfirmPasswordObscured,
-        agreedToTerms,
       ),
     );
   }
