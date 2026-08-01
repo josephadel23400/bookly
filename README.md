@@ -26,9 +26,17 @@ A sleek, dark-themed book reading & discovery app built with Flutter — designe
 
 <div align="center">
 
-| Profile | Edit Profile | Notifications |
+| Home | Search | My Books |
 |:---:|:---:|:---:|
-| <img src="assets/screenshots/profile.jpg" width="220"/> | <img src="assets/screenshots/edit_profile.jpg" width="220"/> | <img src="assets/screenshots/notifications.jpg" width="220"/> |
+| <img src="assets/screenshots/home.jpg" width="220"/> | <img src="assets/screenshots/search.jpg" width="220"/> | <img src="assets/screenshots/my_books.jpg" width="220"/> |
+
+| Saved Books | Book Info | Profile |
+|:---:|:---:|:---:|
+| <img src="assets/screenshots/saved_books.jpg" width="220"/> | <img src="assets/screenshots/book_info.jpg" width="220"/> | <img src="assets/screenshots/profile.jpg" width="220"/> |
+
+| Edit Profile | Notifications | Privacy & Security |
+|:---:|:---:|:---:|
+| <img src="assets/screenshots/edit_profile.jpg" width="220"/> | <img src="assets/screenshots/notifications.jpg" width="220"/> | <img src="assets/screenshots/privacy_security.jpg" width="220"/> |
 
 | Log In | Sign Up | OTP Verification |
 |:---:|:---:|:---:|
@@ -36,12 +44,16 @@ A sleek, dark-themed book reading & discovery app built with Flutter — designe
 
 </div>
 
-> 💡 Replace the images above with your own screenshots in `assets/screenshots/`.
+> 💡 Place your own `.jpg` screenshots in `assets/screenshots/` using the filenames above (or rename the `src` paths to match your own).
 
 ---
 
 ## 🚀 Features
 
+- 🏠 **Home feed** — Browse curated and trending books at a glance
+- 🔍 **Search** — Find books quickly by title, author, or genre
+- 📖 **My Books & Saved Books** — Track what you're reading and bookmark what's next
+- 📄 **Book info** — Detailed view for each book (synopsis, author, genre, etc.)
 - 🔐 **Full authentication flow** — Log in, Sign up, Forgot password, and OTP email verification
 - 👤 **Profile management** — View stats (books read, saved, currently reading), favorite genres, and edit personal info
 - 🖼️ **Avatar upload** — Pick a profile photo from camera or gallery
