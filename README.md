@@ -83,22 +83,40 @@ A sleek, dark-themed book reading & discovery app built with Flutter — designe
 ```
 lib/
 ├── core/
-│   ├── resources/        # Colors, text styles, sizes, assets managers
-│   └── widgets/           # Reusable widgets (CustomTextField, CustomButton, etc.)
+│   ├── app/               # App-level setup (MaterialApp, routing, DI, etc.)
+│   ├── data/               # Shared data layer (network, local storage, etc.)
+│   ├── domain/             # Shared domain layer (entities, use cases)
+│   ├── helper/             # Helper / utility functions
+│   ├── resources/          # Colors, text styles, sizes, assets managers
+│   └── widgets/            # Reusable widgets (CustomTextField, CustomButton, etc.)
 ├── features/
 │   ├── auth/
-│   │   ├── log_in/
-│   │   ├── sign_up/
 │   │   ├── forget_password/
-│   │   └── otp/
-│   └── profile/
-│       ├── edit_profile/
-│       ├── notifications/
-│       └── privacy_and_security/
-└── main.dart
+│   │   ├── log_in/
+│   │   ├── otp/
+│   │   └── sign_up/
+│   ├── book_details/
+│   ├── books_home/
+│   ├── my_books/
+│   ├── profile/
+│   │   ├── edit_profile/
+│   │   ├── manager/
+│   │   ├── notifications/
+│   │   ├── privacy_and_security/
+│   │   └── views/
+│   ├── saved_books/
+│   ├── search_for_book/
+│   ├── splash_screen/
+│   └── user_book_details/
+│       ├── book_reading/
+│       ├── manager/
+│       └── views/
+├── generated/               # Auto-generated files (fonts, assets, etc.)
+├── main.dart
+└── try.dart
 ```
 
-Each feature follows the same pattern: `view/` (pages + widgets) and `manager/` (Cubit + State), keeping UI and logic cleanly separated.
+Each feature generally follows the same pattern: `views/` (pages + widgets) and `manager/` (Cubit + State), keeping UI and logic cleanly separated.
 
 ---
 
