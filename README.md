@@ -28,11 +28,11 @@ A sleek, dark-themed book reading & discovery app built with Flutter — designe
 
 | Profile | Edit Profile | Notifications |
 |:---:|:---:|:---:|
-| <img src="assets/screenshots/profile.png" width="220"/> | <img src="assets/screenshots/edit_profile.png" width="220"/> | <img src="assets/screenshots/notifications.png" width="220"/> |
+| <img src="assets/screenshots/profile.jpg" width="220"/> | <img src="assets/screenshots/edit_profile.jpg" width="220"/> | <img src="assets/screenshots/notifications.jpg" width="220"/> |
 
 | Log In | Sign Up | OTP Verification |
 |:---:|:---:|:---:|
-| <img src="assets/screenshots/login.png" width="220"/> | <img src="assets/screenshots/signup.png" width="220"/> | <img src="assets/screenshots/otp.png" width="220"/> |
+| <img src="assets/screenshots/login.jpg" width="220"/> | <img src="assets/screenshots/signup.jpg" width="220"/> | <img src="assets/screenshots/otp.jpg" width="220"/> |
 
 </div>
 
